@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.tourservice.TourManagementService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -11,6 +12,8 @@ public class Application {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(Application.class.getPackageName());
         TravelAgentService agent = context.getBean(TravelAgentService.class);
+        TourManagementService mgr = context.getBean(TourManagementService.class);
+        mgr.createTour("Zoo Tour", 100, true);
         System.out.println("\n******Explore California Tour Catalogue******");
         agent.displayTours();
 
